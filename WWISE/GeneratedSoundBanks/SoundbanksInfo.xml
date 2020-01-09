@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>D:\Code\RoR2Drogen\WWISE\</ProjectRoot>
+		<SourceFilesRoot>D:\Code\RoR2Drogen\WWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Code\RoR2Drogen\WWISE\GeneratedSoundBanks\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Code\RoR2Drogen\WWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1335775606" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\drogen_soundbank</ObjectPath>
+			<ShortName>drogen_soundbank</ShortName>
+			<Path>drogen_soundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="83071095" Name="drogen_pause" ObjectPath="\Events\Default Work Unit\drogen_pause"/>
+				<Event Id="3040584550" Name="drogen_resume" ObjectPath="\Events\Default Work Unit\drogen_resume"/>
+				<Event Id="1821358973" Name="drogen_start" ObjectPath="\Events\Default Work Unit\drogen_start"/>
+				<Event Id="3106969855" Name="drogen_stop" ObjectPath="\Events\Default Work Unit\drogen_stop"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="813821063" Language="SFX">
+					<ShortName>drogen.wav</ShortName>
+					<Path>SFX\drogen_8956FC97.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
