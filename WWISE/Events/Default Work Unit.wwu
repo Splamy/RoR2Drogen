@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3E3B2BBC-4993-4FEE-9959-E61F3474704C}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{3E3B2BBC-4993-4FEE-9959-E61F3474704C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="drogen_start" ID="{7B2FDA6A-2ACE-4450-88E0-3D5AC323A786}">
+					<ChildrenList>
+						<Action Name="" ID="{5794E208-C587-43D4-A3E2-C470E0757AF1}" ShortID="711459796">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{71F951C2-5134-4B53-8EB3-CA2DE0CC9B1F}" ShortID="467252571">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="13"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="drogen_pause" ID="{D6AD2116-F90B-4F5C-938F-287C9FDE8FE9}">
+					<ChildrenList>
+						<Action Name="" ID="{D888CDEE-B5FA-4975-80E0-70220423FE3B}" ShortID="213902256">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_all" ID="{CC793941-38DA-4FAD-9FA0-2A405FA40821}">
+					<ChildrenList>
+						<Action Name="" ID="{427B0471-26D2-4459-B61F-FFC9D5B1657F}" ShortID="78774042">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="drogen_resume" ID="{7E59A647-D479-4178-AD37-44BDE0042F1C}">
+					<ChildrenList>
+						<Action Name="" ID="{264D6438-2D5E-4DA1-AE10-68FC07EA1665}" ShortID="819019515">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="drogen_stop" ID="{57D1F716-3A50-4954-88F7-3550406431B1}">
+					<ChildrenList>
+						<Action Name="" ID="{3623FAE1-129A-455A-9F9E-B71FC4280F59}" ShortID="48490927">
+							<PropertyList>
+								<Property Name="AbsoluteOrRelative" Type="int16" Value="1"/>
+								<Property Name="ActionType" Type="int16" Value="13"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="Pitch" Type="int32" Value="-1000"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{AEF32776-728A-428B-994E-71643327D4CC}" ShortID="993954459">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

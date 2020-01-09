@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	83071095	drogen_pause			\Default Work Unit\drogen_pause	
+	1821358973	drogen_start			\Default Work Unit\drogen_start	
+	3040584550	drogen_resume			\Default Work Unit\drogen_resume	
+	3106969855	drogen_stop			\Default Work Unit\drogen_stop	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	813821063	drogen	D:\Till\Documents\WwiseProjects\rormemes\.cache\Windows\SFX\drogen_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\drogen		7905088
+

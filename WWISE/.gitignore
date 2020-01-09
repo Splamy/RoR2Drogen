@@ -1,0 +1,5 @@
+*.validationcache
+*.wsettings
+*.akd
+.cache/
+.backup/
