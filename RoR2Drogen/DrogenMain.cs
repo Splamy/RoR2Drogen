@@ -20,7 +20,7 @@ namespace RoR2Drogen
 	[R2APISubmoduleDependency(nameof(AssetPlus))]
 	public class DrogenMain : BaseUnityPlugin
 	{
-		private const string BankName = "rormemes_soundbank.bnk";
+		private const string BankName = "drogen_soundbank.bnk";
 
 		private const uint DrogenStart = 1821358973;
 		private const uint DrogenStop = 3106969855;
@@ -35,10 +35,27 @@ namespace RoR2Drogen
 			On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
 			On.RoR2.Stage.Start += Stage_Start;
+			On.RoR2.Run.AdvanceStage += Run_AdvanceStage;
+			On.RoR2.Run.EndStage += Run_EndStage;
+		}
+
+		private void Run_EndStage(On.RoR2.Run.orig_EndStage orig, Run self)
+		{
+			Debug.LogWarning($"Run_EndStage");
+			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
+			orig(self);
+		}
+
+		private void Run_AdvanceStage(On.RoR2.Run.orig_AdvanceStage orig, Run self, SceneDef nextScene)
+		{
+			Debug.LogWarning($"Run_AdvanceStage");
+			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
+			orig(self, nextScene);
 		}
 
 		private void Stage_Start(On.RoR2.Stage.orig_Start orig, Stage self)
 		{
+			Debug.LogWarning($"Stage_Start");
 			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
 			orig(self);
 		}
@@ -81,7 +98,7 @@ namespace RoR2Drogen
 			var assembly = Assembly.GetExecutingAssembly();
 
 			resourceName = assembly.GetManifestResourceNames()
-				.Single(str => str.EndsWith(resourceName));
+				.First(str => str.EndsWith(resourceName));
 
 			using (var stream = assembly.GetManifestResourceStream(resourceName))
 			{
