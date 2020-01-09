@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="drogen_soundbank.bnk" />
+    <EmbeddedResource Include="..\WWISE\GeneratedSoundBanks\Windows\drogen_soundbank.bnk" />
   </ItemGroup>
   
   <ItemGroup>
