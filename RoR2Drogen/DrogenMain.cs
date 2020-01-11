@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using BepInEx;
-using BepInEx.Configuration;
 using R2API.AssetPlus;
 using R2API.Utils;
-using RoR2.WwiseUtils;
 using RoR2;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace RoR2Drogen
 {
@@ -34,49 +29,49 @@ namespace RoR2Drogen
 
 			On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
-			On.RoR2.Stage.Start += Stage_Start;
-			On.RoR2.Run.AdvanceStage += Run_AdvanceStage;
-			On.RoR2.Run.EndStage += Run_EndStage;
+			On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+			On.RoR2.CharacterBody.OnDestroy += CharacterBody_OnDestroy;
 		}
 
-		private void Run_EndStage(On.RoR2.Run.orig_EndStage orig, Run self)
+		private void CharacterBody_OnDestroy(On.RoR2.CharacterBody.orig_OnDestroy orig, CharacterBody self)
 		{
-			Debug.LogWarning($"Run_EndStage");
-			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
+			//Debug.LogWarning($"CharacterBody_OnDestroy {self}");
+			Drogenentzug(self);
 			orig(self);
 		}
 
-		private void Run_AdvanceStage(On.RoR2.Run.orig_AdvanceStage orig, Run self, SceneDef nextScene)
+		private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
 		{
-			Debug.LogWarning($"Run_AdvanceStage");
-			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
-			orig(self, nextScene);
-		}
-
-		private void Stage_Start(On.RoR2.Stage.orig_Start orig, Stage self)
-		{
-			Debug.LogWarning($"Stage_Start");
-			AkSoundEngine.PostEvent(DrogenRehabilitation, null);
+			//Debug.LogWarning($"CharacterBody_OnDeathStart {self}");
+			Drogenentzug(self);
 			orig(self);
 		}
 
 		private void CharacterBody_OnBuffFinalStackLost(On.RoR2.CharacterBody.orig_OnBuffFinalStackLost orig, CharacterBody self, BuffDef buffDef)
 		{
-			if (buffDef.buffIndex == BuffIndex.TonicBuff)
+			//Debug.LogWarning($"CharacterBody_OnBuffFinalStackLost {self}");
+			if (self.isPlayerControlled && buffDef.buffIndex == BuffIndex.TonicBuff)
 			{
-				AkSoundEngine.PostEvent(DrogenStop, self.gameObject);
+				Drogenentzug(self);
 			}
 			orig(self, buffDef);
 		}
 
 		private void CharacterBody_OnBuffFirstStackGained(On.RoR2.CharacterBody.orig_OnBuffFirstStackGained orig, CharacterBody self, BuffDef buffDef)
 		{
-			Debug.LogWarning($"CharacterBody_OnBuffFirstStackGained");
-			if (buffDef.buffIndex == BuffIndex.TonicBuff)
+			//Debug.LogWarning($"CharacterBody_OnBuffFirstStackGained {self}");
+			if (self.isPlayerControlled && buffDef.buffIndex == BuffIndex.TonicBuff)
 			{
 				AkSoundEngine.PostEvent(DrogenStart, self.gameObject);
 			}
 			orig(self, buffDef);
+		}
+
+		private void Drogenentzug(CharacterBody self)
+		{
+			if (self == null || self.gameObject == null || !self.isPlayerControlled)
+				return;
+			AkSoundEngine.PostEvent(DrogenStop, self.gameObject);
 		}
 
 		public static void AddSoundBank()
