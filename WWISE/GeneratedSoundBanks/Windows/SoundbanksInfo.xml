@@ -20,11 +20,17 @@
 				<Event Id="3040584550" Name="drogen_resume" ObjectPath="\Events\Default Work Unit\drogen_resume"/>
 				<Event Id="1821358973" Name="drogen_start" ObjectPath="\Events\Default Work Unit\drogen_start"/>
 				<Event Id="3106969855" Name="drogen_stop" ObjectPath="\Events\Default Work Unit\drogen_stop"/>
+				<Event Id="2660522436" Name="steamworks_play" ObjectPath="\Events\Default Work Unit\steamworks_play"/>
+				<Event Id="1138002366" Name="steamworks_stop" ObjectPath="\Events\Default Work Unit\steamworks_stop"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="813821063" Language="SFX">
 					<ShortName>drogen.wav</ShortName>
-					<Path>SFX\drogen_8956FC97.wem</Path>
+					<Path>SFX\drogen_C54F28C6.wem</Path>
+				</File>
+				<File Id="1007847808" Language="SFX">
+					<ShortName>steamworks.wav</ShortName>
+					<Path>SFX\steamworks_9C55249E.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

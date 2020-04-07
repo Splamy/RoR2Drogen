@@ -1,9 +1,18 @@
 Event	ID	Name			Wwise Object Path	Notes
 	83071095	drogen_pause			\Default Work Unit\drogen_pause	
+	1138002366	steamworks_stop			\Default Work Unit\steamworks_stop	
 	1821358973	drogen_start			\Default Work Unit\drogen_start	
+	2660522436	steamworks_play			\Default Work Unit\steamworks_play	
 	3040584550	drogen_resume			\Default Work Unit\drogen_resume	
 	3106969855	drogen_stop			\Default Work Unit\drogen_stop	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2825620396	shrine_stacks			\Default Work Unit\shrine_stacks	
+
+Effect plug-ins	ID	Name	Type				Notes
+	359210165	Wwise Guitar Distortion (Custom)	Wwise Guitar Distortion			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	813821063	drogen	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\drogen_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\drogen		7905088
+	813821063	drogen	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\drogen_C54F28C6.wem		\Actor-Mixer Hierarchy\Default Work Unit\drogen		577729
+	1007847808	steamworks	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\steamworks_9C55249E.wem		\Actor-Mixer Hierarchy\Default Work Unit\steamworks		5465639
 

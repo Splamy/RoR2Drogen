@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="drogen_soundbank" ID="{F63DBC03-DC15-4230-B40E-864988B256CF}">
 					<ObjectInclusionList>
+						<ObjectRef Name="steamworks" ID="{5FC7900C-249D-42AF-B618-234A71DD7FFC}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

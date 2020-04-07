@@ -3,14 +3,14 @@
 	<Platform GUID="{F0D31306-90DF-46BB-B34A-EBB24DAE9E3D}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Init" Hash="2582835702" Timestamp="1578605484"/>
-				<File Name="drogen_soundbank" Hash="1390333212" Timestamp="1578605484"/>
+				<File Name="Init" Hash="835034118" Timestamp="1579913782"/>
+				<File Name="drogen_soundbank" Hash="1438201128" Timestamp="1579979369"/>
 				<File Name="rormemes_soundbank" Hash="812227994" Timestamp="1578594426"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="533328726" Timestamp="1578605484"/>
+				<File Name="" Hash="2300982185" Timestamp="1579979369"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

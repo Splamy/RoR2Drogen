@@ -99,6 +99,36 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="steamworks_play" ID="{99635FA3-7F4C-496B-8B4C-5D864A47214B}">
+					<ChildrenList>
+						<Action Name="" ID="{4121B487-3CCC-4543-90B6-989D00542879}" ShortID="755158233">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="steamworks" ID="{5FC7900C-249D-42AF-B618-234A71DD7FFC}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="steamworks_stop" ID="{08D04A4E-54E9-414C-8651-3161481BDA6A}">
+					<ChildrenList>
+						<Action Name="" ID="{4552484C-DC4C-4730-97CB-DAD695B336A6}" ShortID="674755239">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="steamworks" ID="{5FC7900C-249D-42AF-B618-234A71DD7FFC}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
