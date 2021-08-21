@@ -1,3 +1,11 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	3252040498	lasermaster_state			\Default Work Unit\lasermaster_state	
+
+State	ID	Name	State Group			Notes
+	0	None	lasermaster_state			
+	299543722	lasermaster_default	lasermaster_state			
+	1396595742	lasermaster_bass	lasermaster_state			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	985987111	Motion Factory Bus			\Default Work Unit\Motion Factory Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	

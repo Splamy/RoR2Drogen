@@ -22,6 +22,8 @@
 				<Event Id="3106969855" Name="drogen_stop" ObjectPath="\Events\Default Work Unit\drogen_stop"/>
 				<Event Id="3563009708" Name="gnome_play" ObjectPath="\Events\Default Work Unit\gnome_play"/>
 				<Event Id="247409129" Name="hu_play" ObjectPath="\Events\Default Work Unit\hu_play"/>
+				<Event Id="1941548693" Name="lasermaster_drop_fade" ObjectPath="\Events\Default Work Unit\lasermaster_drop_fade"/>
+				<Event Id="2729798857" Name="lasermaster_drop_start" ObjectPath="\Events\Default Work Unit\lasermaster_drop_start"/>
 				<Event Id="2660522436" Name="steamworks_play" ObjectPath="\Events\Default Work Unit\steamworks_play"/>
 				<Event Id="1138002366" Name="steamworks_stop" ObjectPath="\Events\Default Work Unit\steamworks_stop"/>
 			</IncludedEvents>
@@ -53,6 +55,10 @@
 				<File Id="737392870" Language="SFX">
 					<ShortName>hu7.wav</ShortName>
 					<Path>SFX\hu7_A0997E7C.wem</Path>
+				</File>
+				<File Id="790906895" Language="SFX">
+					<ShortName>lasermaster_drop_loop.wav</ShortName>
+					<Path>SFX\lasermaster_drop_loop_C54F28C6.wem</Path>
 				</File>
 				<File Id="805179194" Language="SFX">
 					<ShortName>hu3.wav</ShortName>

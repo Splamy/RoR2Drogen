@@ -8,6 +8,8 @@
 						<ObjectRef Name="hu" ID="{3F19A781-A70D-4193-AC9A-DB1052025722}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="steamworks" ID="{5FC7900C-249D-42AF-B618-234A71DD7FFC}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="drogen" ID="{7F6E7DF1-B1F6-460F-87ED-CD3C73B08B2D}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="lasermaster_drop_start" ID="{DB25B45A-721A-469D-A803-66F2CA5F3EC1}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="gnome_short" ID="{17C5AED5-59DF-4F0D-8F1D-0A89EBD19602}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

@@ -3,16 +3,30 @@ Event	ID	Name			Wwise Object Path	Notes
 	247409129	hu_play			\Default Work Unit\hu_play	
 	1138002366	steamworks_stop			\Default Work Unit\steamworks_stop	
 	1821358973	drogen_start			\Default Work Unit\drogen_start	
+	1941548693	lasermaster_drop_fade			\Default Work Unit\lasermaster_drop_fade	
 	2660522436	steamworks_play			\Default Work Unit\steamworks_play	
+	2729798857	lasermaster_drop_start			\Default Work Unit\lasermaster_drop_start	
 	3040584550	drogen_resume			\Default Work Unit\drogen_resume	
 	3106969855	drogen_stop			\Default Work Unit\drogen_stop	
 	3563009708	gnome_play			\Default Work Unit\gnome_play	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3252040498	lasermaster_state			\Default Work Unit\lasermaster_state	
+
+State	ID	Name	State Group			Notes
+	0	None	lasermaster_state			
+	299543722	lasermaster_default	lasermaster_state			
+	1396595742	lasermaster_bass	lasermaster_state			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	1019566079	lasermaster_default	lasermaster_state	\Actor-Mixer Hierarchy\Default Work Unit\lasermaster_drop_loop		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2825620396	shrine_stacks			\Default Work Unit\shrine_stacks	
 
 Effect plug-ins	ID	Name	Type				Notes
 	359210165	Wwise Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	476638728	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	51668186	hu2	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu2_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu2		4906
@@ -22,6 +36,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	639296211	hu1	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu1_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu1		4674
 	713075328	hu4	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu4_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu4		6185
 	737392870	hu7	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu7_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu7		3574
+	790906895	lasermaster_drop_loop	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\lasermaster_drop_loop_C54F28C6.wem		\Actor-Mixer Hierarchy\Default Work Unit\lasermaster_drop_loop		340517
 	805179194	hu3	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu3_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu3		5177
 	810021368	gnome_short	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\gnome_short_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\gnome_short		118478
 	813821063	drogen	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\drogen_C54F28C6.wem		\Actor-Mixer Hierarchy\Default Work Unit\drogen		577729
