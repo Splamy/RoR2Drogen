@@ -68,7 +68,7 @@ namespace RoR2Drogen
 				AkSoundEngine.PostEvent(LazerStart, gameObj);
 			}
 
-			Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
+			//Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
 			AkSoundEngine.PostEvent(LazerCharge, gameObj);
 			orig(self);
 		}
@@ -76,7 +76,7 @@ namespace RoR2Drogen
 		private void FireMegaLaser_OnEnter(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
 			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
+			//Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
 			AkSoundEngine.PostEvent(LazerFire, self.outer.gameObject);
 			orig(self);
 		}
@@ -84,7 +84,7 @@ namespace RoR2Drogen
 		private void FireMegaLaser_OnExit(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnExit orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
 			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
+			//Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
 			AkSoundEngine.PostEvent(LazerFireEnd, self.outer.gameObject);
 			orig(self);
 		}
