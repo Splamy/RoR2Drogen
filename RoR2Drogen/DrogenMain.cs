@@ -43,16 +43,16 @@ namespace RoR2Drogen
 			On.RoR2.PurchaseInteraction.SetAvailable += PurchaseInteraction_SetAvailable;
 			On.RoR2.CharacterBody.OnSkillActivated += CharacterBodyOnSkillActivated;
 			On.RoR2.Inventory.RpcItemAdded += Inventory_RpcItemAdded;
-            On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
+			On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
 		}
 
-        private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
-        {
+		private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
+		{
 			self.gameObject.AddComponent<GoldDestroyer>();
 			orig(self);
-        }
+		}
 
-        private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
+		private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
 		{
 			Debug.LogWarning("killActivated!!!");
 			if (self != null) Debug.LogWarning($"self: ${self.name}");

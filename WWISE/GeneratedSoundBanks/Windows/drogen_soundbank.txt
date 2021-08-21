@@ -19,13 +19,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	181311941	hu10	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu10_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu10		5296
 	210034912	hu6	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu6_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu6		4469
 	332186889	hu5	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu5_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu5		5241
-	438169327	hu9	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu9_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu9		3632
 	639296211	hu1	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu1_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu1		4674
 	713075328	hu4	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu4_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu4		6185
 	737392870	hu7	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu7_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu7		3574
 	805179194	hu3	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu3_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu3		5177
 	810021368	gnome_short	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\gnome_short_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\gnome_short		118478
 	813821063	drogen	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\drogen_C54F28C6.wem		\Actor-Mixer Hierarchy\Default Work Unit\drogen		577729
-	918947130	hu8	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu8_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu8		4022
 	1007847808	steamworks	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\steamworks_9C55249E.wem		\Actor-Mixer Hierarchy\Default Work Unit\steamworks		5465639
 

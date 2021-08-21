@@ -42,10 +42,6 @@
 					<ShortName>hu5.wav</ShortName>
 					<Path>SFX\hu5_A0997E7C.wem</Path>
 				</File>
-				<File Id="438169327" Language="SFX">
-					<ShortName>hu9.wav</ShortName>
-					<Path>SFX\hu9_A0997E7C.wem</Path>
-				</File>
 				<File Id="639296211" Language="SFX">
 					<ShortName>hu1.wav</ShortName>
 					<Path>SFX\hu1_A0997E7C.wem</Path>
@@ -69,10 +65,6 @@
 				<File Id="813821063" Language="SFX">
 					<ShortName>drogen.wav</ShortName>
 					<Path>SFX\drogen_C54F28C6.wem</Path>
-				</File>
-				<File Id="918947130" Language="SFX">
-					<ShortName>hu8.wav</ShortName>
-					<Path>SFX\hu8_A0997E7C.wem</Path>
 				</File>
 				<File Id="1007847808" Language="SFX">
 					<ShortName>steamworks.wav</ShortName>

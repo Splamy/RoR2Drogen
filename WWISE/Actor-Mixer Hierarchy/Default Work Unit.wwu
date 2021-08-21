@@ -256,6 +256,9 @@
 						<Reference Name="Attenuation">
 							<Custom>
 								<Attenuation Name="Attenuation (Custom)" ID="{52C52607-AF3D-48E1-BF9E-60ABBBCBE75F}" ShortID="298270928">
+									<PropertyList>
+										<Property Name="RadiusMax" Type="Real64" Value="200"/>
+									</PropertyList>
 									<CurveUsageInfoList>
 										<VolumeDryUsage>
 											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -270,7 +273,12 @@
 															<Flags>5</Flags>
 														</Point>
 														<Point>
-															<XPos>100</XPos>
+															<XPos>50.15773</XPos>
+															<YPos>0</YPos>
+															<Flags>0</Flags>
+														</Point>
+														<Point>
+															<XPos>200</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
 														</Point>
@@ -439,44 +447,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="hu7" ID="{1FD20D9B-EE48-4BFF-B481-A5EFBF6F0CB3}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="hu8" ID="{A3AC9D58-8662-4E87-9084-1FC8FFDDB208}" ShortID="994808684">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A848BF79-7DD3-4BE1-AC68-1B680CB21B2A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8E261C63-F271-4B8B-9DAF-51789647AEC8}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="hu8" ID="{B98F9BE2-1DAC-44A3-A77E-8D823BA3604F}" ShortID="918947130">
-									<Language>SFX</Language>
-									<AudioFile>hu8.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="hu8" ID="{B98F9BE2-1DAC-44A3-A77E-8D823BA3604F}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="hu9" ID="{8FC68A6D-E702-4943-BB74-EB09F9F2F29F}" ShortID="815444487">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A848BF79-7DD3-4BE1-AC68-1B680CB21B2A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8E261C63-F271-4B8B-9DAF-51789647AEC8}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="hu9" ID="{111A6DBD-90FF-4854-AC83-C0922388662C}" ShortID="438169327">
-									<Language>SFX</Language>
-									<AudioFile>hu9.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="hu9" ID="{111A6DBD-90FF-4854-AC83-C0922388662C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="hu10" ID="{965E5B79-F7A3-4BF9-97B3-7EF0AF2C47D6}" ShortID="251496849">
