@@ -20,13 +20,59 @@
 				<Event Id="3040584550" Name="drogen_resume" ObjectPath="\Events\Default Work Unit\drogen_resume"/>
 				<Event Id="1821358973" Name="drogen_start" ObjectPath="\Events\Default Work Unit\drogen_start"/>
 				<Event Id="3106969855" Name="drogen_stop" ObjectPath="\Events\Default Work Unit\drogen_stop"/>
+				<Event Id="3563009708" Name="gnome_play" ObjectPath="\Events\Default Work Unit\gnome_play"/>
+				<Event Id="247409129" Name="hu_play" ObjectPath="\Events\Default Work Unit\hu_play"/>
 				<Event Id="2660522436" Name="steamworks_play" ObjectPath="\Events\Default Work Unit\steamworks_play"/>
 				<Event Id="1138002366" Name="steamworks_stop" ObjectPath="\Events\Default Work Unit\steamworks_stop"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="51668186" Language="SFX">
+					<ShortName>hu2.wav</ShortName>
+					<Path>SFX\hu2_A0997E7C.wem</Path>
+				</File>
+				<File Id="181311941" Language="SFX">
+					<ShortName>hu10.wav</ShortName>
+					<Path>SFX\hu10_A0997E7C.wem</Path>
+				</File>
+				<File Id="210034912" Language="SFX">
+					<ShortName>hu6.wav</ShortName>
+					<Path>SFX\hu6_A0997E7C.wem</Path>
+				</File>
+				<File Id="332186889" Language="SFX">
+					<ShortName>hu5.wav</ShortName>
+					<Path>SFX\hu5_A0997E7C.wem</Path>
+				</File>
+				<File Id="438169327" Language="SFX">
+					<ShortName>hu9.wav</ShortName>
+					<Path>SFX\hu9_A0997E7C.wem</Path>
+				</File>
+				<File Id="639296211" Language="SFX">
+					<ShortName>hu1.wav</ShortName>
+					<Path>SFX\hu1_A0997E7C.wem</Path>
+				</File>
+				<File Id="713075328" Language="SFX">
+					<ShortName>hu4.wav</ShortName>
+					<Path>SFX\hu4_A0997E7C.wem</Path>
+				</File>
+				<File Id="737392870" Language="SFX">
+					<ShortName>hu7.wav</ShortName>
+					<Path>SFX\hu7_A0997E7C.wem</Path>
+				</File>
+				<File Id="805179194" Language="SFX">
+					<ShortName>hu3.wav</ShortName>
+					<Path>SFX\hu3_A0997E7C.wem</Path>
+				</File>
+				<File Id="810021368" Language="SFX">
+					<ShortName>gnome_short.wav</ShortName>
+					<Path>SFX\gnome_short_A0997E7C.wem</Path>
+				</File>
 				<File Id="813821063" Language="SFX">
 					<ShortName>drogen.wav</ShortName>
 					<Path>SFX\drogen_C54F28C6.wem</Path>
+				</File>
+				<File Id="918947130" Language="SFX">
+					<ShortName>hu8.wav</ShortName>
+					<Path>SFX\hu8_A0997E7C.wem</Path>
 				</File>
 				<File Id="1007847808" Language="SFX">
 					<ShortName>steamworks.wav</ShortName>

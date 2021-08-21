@@ -129,6 +129,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="hu_play" ID="{449512B6-86EE-441E-AE99-C690F8C03B6D}">
+					<ChildrenList>
+						<Action Name="" ID="{A58D35F1-0073-468D-85B7-743C34291F2A}" ShortID="904730329">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hu" ID="{3F19A781-A70D-4193-AC9A-DB1052025722}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gnome_play" ID="{9E94EC97-D5FD-4930-AEC4-BF5E4A2B5A45}">
+					<ChildrenList>
+						<Action Name="" ID="{5628BFF0-96E6-47E4-BD44-92BDA3D65E6E}" ShortID="738571799">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="gnome_short" ID="{17C5AED5-59DF-4F0D-8F1D-0A89EBD19602}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
