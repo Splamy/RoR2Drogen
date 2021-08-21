@@ -11,7 +11,7 @@ using static RoR2.RoR2Content;
 namespace RoR2Drogen
 {
 	[BepInDependency("com.bepis.r2api")]
-	[BepInPlugin("com.respeak.drogen", "DrogenJedenTag", "1.1.0")]
+	[BepInPlugin("com.respeak.drogen", "DrogenJedenTag", "1.2.0")]
 	[NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
 	public class DrogenMain : BaseUnityPlugin
 	{
@@ -71,7 +71,7 @@ namespace RoR2Drogen
 						return;
 					}
 
-					AkSoundEngine.PostEvent(LazerCharge, body);
+					AkSoundEngine.PostEvent(LazerInit, body);
 				});
 			}
 			return spawned;
@@ -83,7 +83,7 @@ namespace RoR2Drogen
 			//Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
 			if (isGold)
 			{
-				AkSoundEngine.PostEvent(LazerInit, self.outer.gameObject);
+				AkSoundEngine.PostEvent(LazerCharge, self.outer.gameObject);
 			}
 			orig(self);
 		}
