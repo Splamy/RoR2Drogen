@@ -6,6 +6,7 @@ using R2API;
 using R2API.Utils;
 using RoR2;
 using UnityEngine;
+using static RoR2.RoR2Content;
 
 namespace RoR2Drogen
 {
@@ -21,6 +22,9 @@ namespace RoR2Drogen
 		private const uint DrogenPause = 83071095;
 		private const uint DrogenResume = 3040584550;
 		private const uint DrogenRehabilitation = 452547817;
+		private const uint GnomeGnomedPlay = 3563009708;
+		private const uint GnomeHuhPlay = 247409129;
+
 
 		private const uint SteamworksStart = 2660522436;
 		private const uint SteamworksStop = 1138002366;
@@ -33,14 +37,13 @@ namespace RoR2Drogen
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
 			On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
 			On.RoR2.CharacterBody.OnDestroy += CharacterBody_OnDestroy;
-			On.RoR2.ShrineChanceBehavior.Start += ShrineChanceBehavior_Start;
+			//On.RoR2.AnimationEvents.
 			On.RoR2.ShrineChanceBehavior.AddShrineStack += ShrineChanceBehavior_AddShrineStack;
-			On.RoR2.PurchaseInteraction.OnInteractionBegin += PurchaseInteraction_OnInteractionBegin;
 			On.RoR2.PurchaseInteraction.OnEnable += PurchaseInteraction_OnEnable;
 			On.RoR2.PurchaseInteraction.OnDisable += PurchaseInteraction_OnDisable;
 			On.RoR2.PurchaseInteraction.SetAvailable += PurchaseInteraction_SetAvailable;
-			On.RoR2.PurchaseInteraction.SetAvailableTrue += PurchaseInteraction_SetAvailableTrue;
 			On.RoR2.CharacterBody.OnSkillActivated += CharacterBodyOnSkillActivated;
+			On.RoR2.Inventory.RpcItemAdded += Inventory_RpcItemAdded;
 		}
 
 		private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
@@ -51,22 +54,56 @@ namespace RoR2Drogen
 			orig(self, skill);
 		}
 
-		private void PurchaseInteraction_SetAvailableTrue(On.RoR2.PurchaseInteraction.orig_SetAvailableTrue orig, PurchaseInteraction self)
+		#region Gnoomed
+
+		private void Inventory_RpcItemAdded(On.RoR2.Inventory.orig_RpcItemAdded orig, Inventory self, ItemIndex itemIndex)
 		{
-			Debug.LogWarning($"PurchaseInteraction_SetAvailableTrue");
-			orig(self);
+			try
+			{
+				Debug.LogWarning($"Inventory_RpcItemAdded {self} {itemIndex}");
+				CheckGnooomed(self, itemIndex);
+			}
+			catch { Debug.LogWarning($"ERRRRR: Inventory_RpcItemAdded"); }
+			orig(self, itemIndex);
 		}
+
+		private void CheckGnooomed(Inventory self, ItemIndex itemIndex)
+		{
+			if (itemIndex != Items.BonusGoldPackOnKill.itemIndex)
+				return;
+
+			var cm = self.GetComponent<CharacterMaster>();
+			if (cm == null)
+			{
+				Debug.Log("No character master, skipping");
+				return;
+			}
+			var body = cm.GetBodyObject();
+			if (body == null)
+			{
+				Debug.Log("No character body, skipping");
+				return;
+			}
+
+			Debug.LogError("You got gnomed");
+
+			AkSoundEngine.PostEvent(GnomeGnomedPlay, body);
+		}
+
+		#endregion
+
+		#region Gambling
 
 		private void PurchaseInteraction_OnDisable(On.RoR2.PurchaseInteraction.orig_OnDisable orig, PurchaseInteraction self)
 		{
-			Debug.LogWarning($"PurchaseInteraction_OnDisable");
+			//Debug.LogWarning($"PurchaseInteraction_OnDisable");
 			AkSoundEngine.PostEvent(SteamworksStop, self.gameObject);
 			orig(self);
 		}
 
 		private void PurchaseInteraction_SetAvailable(On.RoR2.PurchaseInteraction.orig_SetAvailable orig, PurchaseInteraction self, bool newAvailable)
 		{
-			Debug.LogWarning($"PurchaseInteraction_SetAvailable {newAvailable}");
+			//Debug.LogWarning($"PurchaseInteraction_SetAvailable {newAvailable}");
 			if (self.gameObject.GetComponent<ShrineChanceBehavior>() != null)
 			{
 				if (newAvailable)
@@ -83,7 +120,7 @@ namespace RoR2Drogen
 
 		private void PurchaseInteraction_OnEnable(On.RoR2.PurchaseInteraction.orig_OnEnable orig, PurchaseInteraction self)
 		{
-			Debug.LogWarning($"PurchaseInteraction_OnEnable");
+			//Debug.LogWarning($"PurchaseInteraction_OnEnable");
 			if (self.gameObject.GetComponent<ShrineChanceBehavior>() != null)
 			{
 				AkSoundEngine.PostEvent(SteamworksStart, self.gameObject);
@@ -91,23 +128,15 @@ namespace RoR2Drogen
 			orig(self);
 		}
 
-		private void PurchaseInteraction_OnInteractionBegin(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
-		{
-			Debug.LogWarning($"PurchaseInteraction_OnInteractionBegin");
-			orig(self, activator);
-		}
-
 		private void ShrineChanceBehavior_AddShrineStack(On.RoR2.ShrineChanceBehavior.orig_AddShrineStack orig, ShrineChanceBehavior self, Interactor activator)
 		{
-			Debug.LogWarning($"ShrineChanceBehavior_AddShrineStack");
+			//Debug.LogWarning($"ShrineChanceBehavior_AddShrineStack");
 			orig(self, activator);
 		}
 
-		private void ShrineChanceBehavior_Start(On.RoR2.ShrineChanceBehavior.orig_Start orig, ShrineChanceBehavior self)
-		{
-			Debug.LogWarning($"ShrineChanceBehavior_Start");
-			orig(self);
-		}
+		#endregion
+
+		#region Drogen
 
 		private void CharacterBody_OnDestroy(On.RoR2.CharacterBody.orig_OnDestroy orig, CharacterBody self)
 		{
@@ -126,7 +155,7 @@ namespace RoR2Drogen
 		private void CharacterBody_OnBuffFinalStackLost(On.RoR2.CharacterBody.orig_OnBuffFinalStackLost orig, CharacterBody self, BuffDef buffDef)
 		{
 			//Debug.LogWarning($"CharacterBody_OnBuffFinalStackLost {self}");
-			if (self.isPlayerControlled && buffDef.buffIndex == BuffIndex.TonicBuff)
+			if (self.isPlayerControlled && buffDef.buffIndex == Buffs.TonicBuff.buffIndex)
 			{
 				Drogenentzug(self);
 			}
@@ -135,12 +164,17 @@ namespace RoR2Drogen
 
 		private void CharacterBody_OnBuffFirstStackGained(On.RoR2.CharacterBody.orig_OnBuffFirstStackGained orig, CharacterBody self, BuffDef buffDef)
 		{
-			//Debug.LogWarning($"CharacterBody_OnBuffFirstStackGained {self}");
-			if (self.isPlayerControlled && buffDef.buffIndex == BuffIndex.TonicBuff)
+			//Debug.LogWarning($"CharacterBody_OnBuffFirstStackGained {self} {buffDef}");
+			if (self.isPlayerControlled && buffDef.buffIndex == Buffs.TonicBuff.buffIndex)
 			{
-				AkSoundEngine.PostEvent(DrogenStart, self.gameObject);
+				Drogenrausch(self);
 			}
 			orig(self, buffDef);
+		}
+
+		private void Drogenrausch(CharacterBody self)
+		{
+			AkSoundEngine.PostEvent(DrogenStart, self.gameObject);
 		}
 
 		private void Drogenentzug(CharacterBody self)
@@ -149,6 +183,8 @@ namespace RoR2Drogen
 				return;
 			AkSoundEngine.PostEvent(DrogenStop, self.gameObject);
 		}
+
+		#endregion
 
 		public static void AddSoundBank()
 		{
