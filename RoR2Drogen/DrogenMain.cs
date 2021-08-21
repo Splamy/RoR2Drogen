@@ -22,11 +22,15 @@ namespace RoR2Drogen
 		public const uint DrogenPause = 83071095;
 		public const uint DrogenResume = 3040584550;
 		public const uint DrogenRehabilitation = 452547817;
+
 		public const uint GnomeGnomedPlay = 3563009708;
 		public const uint GnomeHuhPlay = 247409129;
 
 		public const uint SteamworksStart = 2660522436;
 		public const uint SteamworksStop = 1138002366;
+
+		public const uint LazerInit = 2729798857;
+		public const uint LazerCharge = 1941548693;
 
 		public void Awake()
 		{
@@ -41,24 +45,64 @@ namespace RoR2Drogen
 			On.RoR2.PurchaseInteraction.OnEnable += PurchaseInteraction_OnEnable;
 			On.RoR2.PurchaseInteraction.OnDisable += PurchaseInteraction_OnDisable;
 			On.RoR2.PurchaseInteraction.SetAvailable += PurchaseInteraction_SetAvailable;
-			On.RoR2.CharacterBody.OnSkillActivated += CharacterBodyOnSkillActivated;
 			On.RoR2.Inventory.RpcItemAdded += Inventory_RpcItemAdded;
-			On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
+            On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
+			On.EntityStates.TitanMonster.FireMegaLaser.OnEnter += FireMegaLaser_OnEnter;
+			On.EntityStates.TitanMonster.ChargeMegaLaser.OnEnter += ChargeMegaLaser_OnEnter;
+			On.EntityStates.TitanMonster.FireMegaLaser.OnExit += FireMegaLaser_OnExit;
+			On.RoR2.GoldTitanManager.TryStartChannelingTitansServer += GoldTitanManager_TryStartChannelingTitansServer;
 		}
 
-		private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
+		#region Lazermaster
+
+		private List<CharacterMaster> currentTitans = (List<CharacterMaster>)typeof(GoldTitanManager).GetField("currentTitans", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+
+		private bool GoldTitanManager_TryStartChannelingTitansServer(On.RoR2.GoldTitanManager.orig_TryStartChannelingTitansServer orig, object channeler, Vector3 approximatePosition, Vector3? lookAtPosition, System.Action channelEndCallback)
 		{
-			self.gameObject.AddComponent<GoldDestroyer>();
+			var spawned = orig(channeler, approximatePosition, lookAtPosition, channelEndCallback);
+			if (spawned) {
+				//Debug.LogError($"TITAAAAAAAN {Time.realtimeSinceStartup} {currentTitans.Count}");
+				currentTitans.ForEach(titan =>
+				{
+					var body = titan.GetBodyObject();
+					if (body == null)
+					{
+						Debug.Log("Skipping Titan with no body");
+						return;
+					}
+
+					AkSoundEngine.PostEvent(LazerCharge, body);
+				});
+			}
+			return spawned;
+		}
+
+		private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
+		{
+			var isGold = self is EntityStates.TitanMonster.ChargeGoldMegaLaser;
+			//Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
+			if (isGold)
+			{
+				AkSoundEngine.PostEvent(LazerInit, self.outer.gameObject);
+			}
 			orig(self);
 		}
 
-		private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
+		private void FireMegaLaser_OnExit(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnExit orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
-			Debug.LogWarning("killActivated!!!");
-			if (self != null) Debug.LogWarning($"self: ${self.name}");
-			if (skill != null) Debug.LogWarning($"skill: ${skill.skillName}");
-			orig(self, skill);
+			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+			//Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
+			orig(self);
 		}
+
+		private void FireMegaLaser_OnEnter(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.FireMegaLaser self)
+		{
+			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+			//Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
+			orig(self);
+		}
+
+		#endregion
 
 		#region Gnoomed
 
@@ -94,6 +138,12 @@ namespace RoR2Drogen
 			Debug.LogError("You got gnomed");
 
 			AkSoundEngine.PostEvent(GnomeGnomedPlay, body);
+		}
+
+		private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
+		{
+			self.gameObject.AddComponent<GoldDestroyer>();
+			orig(self);
 		}
 
 		#endregion
