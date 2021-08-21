@@ -65,11 +65,11 @@ namespace RoR2Drogen
 			if (lm == null)
 			{
 				lm = gameObj.AddComponent<Lazermaster>();
-				AkSoundEngine.PostEvent(DrogenMain.LazerStart, gameObject);
+				AkSoundEngine.PostEvent(LazerStart, gameObj);
 			}
 
 			Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
-			AkSoundEngine.PostEvent(LazerCharge, self.outer.gameObject);
+			AkSoundEngine.PostEvent(LazerCharge, gameObj);
 			orig(self);
 		}
 
