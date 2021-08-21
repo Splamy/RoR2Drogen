@@ -17,17 +17,16 @@ namespace RoR2Drogen
 	{
 		private const string BankName = "drogen_soundbank.bnk";
 
-		private const uint DrogenStart = 1821358973;
-		private const uint DrogenStop = 3106969855;
-		private const uint DrogenPause = 83071095;
-		private const uint DrogenResume = 3040584550;
-		private const uint DrogenRehabilitation = 452547817;
-		private const uint GnomeGnomedPlay = 3563009708;
-		private const uint GnomeHuhPlay = 247409129;
+		public const uint DrogenStart = 1821358973;
+		public const uint DrogenStop = 3106969855;
+		public const uint DrogenPause = 83071095;
+		public const uint DrogenResume = 3040584550;
+		public const uint DrogenRehabilitation = 452547817;
+		public const uint GnomeGnomedPlay = 3563009708;
+		public const uint GnomeHuhPlay = 247409129;
 
-
-		private const uint SteamworksStart = 2660522436;
-		private const uint SteamworksStop = 1138002366;
+		public const uint SteamworksStart = 2660522436;
+		public const uint SteamworksStop = 1138002366;
 
 		public void Awake()
 		{
@@ -44,9 +43,16 @@ namespace RoR2Drogen
 			On.RoR2.PurchaseInteraction.SetAvailable += PurchaseInteraction_SetAvailable;
 			On.RoR2.CharacterBody.OnSkillActivated += CharacterBodyOnSkillActivated;
 			On.RoR2.Inventory.RpcItemAdded += Inventory_RpcItemAdded;
+            On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
 		}
 
-		private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
+        private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
+        {
+			self.gameObject.AddComponent<GoldDestroyer>();
+			orig(self);
+        }
+
+        private void CharacterBodyOnSkillActivated(On.RoR2.CharacterBody.orig_OnSkillActivated orig, CharacterBody self, GenericSkill skill)
 		{
 			Debug.LogWarning("killActivated!!!");
 			if (self != null) Debug.LogWarning($"self: ${self.name}");
