@@ -22,8 +22,11 @@
 				<Event Id="3106969855" Name="drogen_stop" ObjectPath="\Events\Default Work Unit\drogen_stop"/>
 				<Event Id="3563009708" Name="gnome_play" ObjectPath="\Events\Default Work Unit\gnome_play"/>
 				<Event Id="247409129" Name="hu_play" ObjectPath="\Events\Default Work Unit\hu_play"/>
-				<Event Id="1941548693" Name="lasermaster_drop_fade" ObjectPath="\Events\Default Work Unit\lasermaster_drop_fade"/>
+				<Event Id="758272295" Name="lasermaster_drop_charge" ObjectPath="\Events\Default Work Unit\lasermaster_drop_charge"/>
+				<Event Id="2040934607" Name="lasermaster_drop_fire" ObjectPath="\Events\Default Work Unit\lasermaster_drop_fire"/>
+				<Event Id="2649077457" Name="lasermaster_drop_fire_end" ObjectPath="\Events\Default Work Unit\lasermaster_drop_fire_end"/>
 				<Event Id="2729798857" Name="lasermaster_drop_start" ObjectPath="\Events\Default Work Unit\lasermaster_drop_start"/>
+				<Event Id="182908003" Name="lasermaster_drop_stop" ObjectPath="\Events\Default Work Unit\lasermaster_drop_stop"/>
 				<Event Id="2660522436" Name="steamworks_play" ObjectPath="\Events\Default Work Unit\steamworks_play"/>
 				<Event Id="1138002366" Name="steamworks_stop" ObjectPath="\Events\Default Work Unit\steamworks_stop"/>
 			</IncludedEvents>

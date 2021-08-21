@@ -162,7 +162,18 @@
 						<Action Name="" ID="{139112EA-CC18-423D-ABB2-474F34B329BE}" ShortID="1037662014">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="12"/>
-								<Property Name="Volume" Type="Real64" Value="-33"/>
+								<Property Name="Volume" Type="Real64" Value="-10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{2F525067-6BBF-4A84-B902-20A1FC84F377}" ShortID="245742115">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="26"/>
+								<Property Name="Lowpass" Type="int16" Value="80"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -182,14 +193,14 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="lasermaster_drop_fade" ID="{70C09804-B198-455E-84C3-4774F183D245}">
+				<Event Name="lasermaster_drop_charge" ID="{70C09804-B198-455E-84C3-4774F183D245}">
 					<ChildrenList>
 						<Action Name="" ID="{9F86EE50-8454-4C5D-9A55-82884169183E}" ShortID="539755146">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="12"/>
 								<Property Name="FadeInCurve" Type="int16" Value="5"/>
-								<Property Name="FadeTime" Type="Real64" Value="1"/>
-								<Property Name="Volume" Type="Real64" Value="-15"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Volume" Type="Real64" Value="-5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -197,12 +208,12 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{69AA0194-2776-436C-912B-0ED43983CD12}" ShortID="115412883">
+						<Action Name="" ID="{AFD26329-5744-484B-B9E1-6D7E4A69C4B4}" ShortID="815062085">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="12"/>
-								<Property Name="Delay" Type="Real64" Value="2.9"/>
+								<Property Name="ActionType" Type="int16" Value="26"/>
 								<Property Name="FadeInCurve" Type="int16" Value="5"/>
-								<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Lowpass" Type="int16" Value="55"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -210,13 +221,70 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{44577264-C554-4719-8F41-BCBEF1420753}" ShortID="816329945">
+					</ChildrenList>
+				</Event>
+				<Event Name="lasermaster_drop_stop" ID="{C7946F7C-E59D-4E18-913A-B9ECFC7D6DB5}">
+					<ChildrenList>
+						<Action Name="" ID="{6254E76C-808B-4CF9-B2DC-9016504381C8}" ShortID="42171130">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="lasermaster_drop_fire" ID="{EC62627D-C626-4FAA-AFDC-F7C0A3B0D09C}">
+					<ChildrenList>
+						<Action Name="" ID="{FA99C1F5-A8BC-4745-A4A6-EF4CD8BE2B27}" ShortID="411360497">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="12"/>
-								<Property Name="Delay" Type="Real64" Value="5.9"/>
 								<Property Name="FadeInCurve" Type="int16" Value="5"/>
 								<Property Name="FadeTime" Type="Real64" Value="0.3"/>
-								<Property Name="Volume" Type="Real64" Value="-33"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BFB91237-983A-4567-840C-A45F2B6F5E45}" ShortID="871400085">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="26"/>
+								<Property Name="FadeInCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="lasermaster_drop_fire_end" ID="{04420D4A-5E8F-4FB5-89F9-2000C50FE8E7}">
+					<ChildrenList>
+						<Action Name="" ID="{F7495787-26F1-4B6B-BA62-AED45070A1C8}" ShortID="397394484">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="12"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Volume" Type="Real64" Value="-10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lasermaster_drop_loop" ID="{727CF80B-361E-4803-92B2-A155EB4EF1FE}" WorkUnitID="{6D182326-A0F9-4175-AB78-75A731C9DD61}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{36BDEC5D-BBAB-43E4-A7E1-96ECD7953E1D}" ShortID="628419767">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="26"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Lowpass" Type="int16" Value="80"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

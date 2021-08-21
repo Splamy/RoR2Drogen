@@ -1,9 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
 	83071095	drogen_pause			\Default Work Unit\drogen_pause	
+	182908003	lasermaster_drop_stop			\Default Work Unit\lasermaster_drop_stop	
 	247409129	hu_play			\Default Work Unit\hu_play	
+	758272295	lasermaster_drop_charge			\Default Work Unit\lasermaster_drop_charge	
 	1138002366	steamworks_stop			\Default Work Unit\steamworks_stop	
 	1821358973	drogen_start			\Default Work Unit\drogen_start	
-	1941548693	lasermaster_drop_fade			\Default Work Unit\lasermaster_drop_fade	
+	2040934607	lasermaster_drop_fire			\Default Work Unit\lasermaster_drop_fire	
+	2649077457	lasermaster_drop_fire_end			\Default Work Unit\lasermaster_drop_fire_end	
 	2660522436	steamworks_play			\Default Work Unit\steamworks_play	
 	2729798857	lasermaster_drop_start			\Default Work Unit\lasermaster_drop_start	
 	3040584550	drogen_resume			\Default Work Unit\drogen_resume	
