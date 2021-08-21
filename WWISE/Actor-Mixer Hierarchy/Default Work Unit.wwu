@@ -603,21 +603,6 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A848BF79-7DD3-4BE1-AC68-1B680CB21B2A}"/>
 						</Reference>
-						<Reference Name="Effect0">
-							<Custom>
-								<Effect Name="Wwise Parametric EQ (Custom)" ID="{6690F1BB-6CE5-4F7D-B3C6-C62D9EAD7EBE}" ShortID="476638728" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-									<PropertyList>
-										<Property Name="FilterTypeBand2" Type="int32" Value="4"/>
-										<Property Name="FrequencyBand1" Type="Real32" Value="232"/>
-										<Property Name="FrequencyBand2" Type="Real32" Value="533"/>
-										<Property Name="GainBand1" Type="Real32" Value="10"/>
-										<Property Name="GainBand2" Type="Real32" Value="10"/>
-										<Property Name="OnOffBand3" Type="bool" Value="False"/>
-										<Property Name="OutputLevel" Type="Real32" Value="-7.5"/>
-									</PropertyList>
-								</Effect>
-							</Custom>
-						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8E261C63-F271-4B8B-9DAF-51789647AEC8}"/>
 						</Reference>
@@ -632,25 +617,6 @@
 						<StatePropertyList>
 							<Property Name="BypassEffect0"/>
 						</StatePropertyList>
-						<StateGroupList>
-							<StateGroupInfo>
-								<StateGroupRef Name="lasermaster_state" ID="{56BA004A-CB2F-4E93-A838-EB0CD03F1D32}"/>
-							</StateGroupInfo>
-						</StateGroupList>
-						<CustomStateList>
-							<CustomState>
-								<StateRef Name="lasermaster_bass" ID="{6EDBD4DE-35BC-4475-B776-A39E4CD6815E}"/>
-								<State Name="" ID="{6660B893-F9FB-44C4-91A1-C9F7FD04D55E}" ShortID="3043391"/>
-							</CustomState>
-							<CustomState>
-								<StateRef Name="lasermaster_default" ID="{FCF40162-5BFD-4630-B7E6-83AB79FDE0C9}"/>
-								<State Name="" ID="{A9C83FD8-84D6-4706-B6D4-2B25305CE1D3}" ShortID="1019566079">
-									<PropertyList>
-										<Property Name="BypassEffect0" Type="bool" Value="True"/>
-									</PropertyList>
-								</State>
-							</CustomState>
-						</CustomStateList>
 					</StateInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="lasermaster_drop_loop" ID="{09E456E9-A355-4450-8FC2-25DE4B5B4FC1}" Platform="Linked"/>

@@ -10,23 +10,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	3106969855	drogen_stop			\Default Work Unit\drogen_stop	
 	3563009708	gnome_play			\Default Work Unit\gnome_play	
 
-State Group	ID	Name			Wwise Object Path	Notes
-	3252040498	lasermaster_state			\Default Work Unit\lasermaster_state	
-
-State	ID	Name	State Group			Notes
-	0	None	lasermaster_state			
-	299543722	lasermaster_default	lasermaster_state			
-	1396595742	lasermaster_bass	lasermaster_state			
-
-Custom State	ID	Name	State Group	Owner		Notes
-	1019566079	lasermaster_default	lasermaster_state	\Actor-Mixer Hierarchy\Default Work Unit\lasermaster_drop_loop		
-
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2825620396	shrine_stacks			\Default Work Unit\shrine_stacks	
 
 Effect plug-ins	ID	Name	Type				Notes
 	359210165	Wwise Guitar Distortion (Custom)	Wwise Guitar Distortion			
-	476638728	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	51668186	hu2	D:\Code\RoR2Drogen\WWISE\.cache\Windows\SFX\hu2_A0997E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\hu\hu2		4906

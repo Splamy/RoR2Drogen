@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{70303FA5-E47B-43D1-AC4F-59463D780500}" SchemaVersion="89">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{70303FA5-E47B-43D1-AC4F-59463D780500}" PersistMode="Standalone">
-			<ChildrenList>
-				<StateGroup Name="lasermaster_state" ID="{56BA004A-CB2F-4E93-A838-EB0CD03F1D32}">
-					<ChildrenList>
-						<State Name="None" ID="{1687189D-A4DB-4F8F-9F1C-C9C5E1743F06}"/>
-						<State Name="lasermaster_default" ID="{FCF40162-5BFD-4630-B7E6-83AB79FDE0C9}"/>
-						<State Name="lasermaster_bass" ID="{6EDBD4DE-35BC-4475-B776-A39E4CD6815E}"/>
-					</ChildrenList>
-				</StateGroup>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{70303FA5-E47B-43D1-AC4F-59463D780500}" PersistMode="Standalone"/>
 	</States>
 </WwiseDocument>
