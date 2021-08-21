@@ -29,8 +29,11 @@ namespace RoR2Drogen
 		public const uint SteamworksStart = 2660522436;
 		public const uint SteamworksStop = 1138002366;
 
-		public const uint LazerInit = 2729798857;
-		public const uint LazerCharge = 1941548693;
+		public const uint LazerStart = 2729798857;
+		public const uint LazerCharge = 758272295;
+		public const uint LazerFire = 2040934607;
+		public const uint LazerFireEnd = 2649077457;
+		public const uint LazerStop = 182908003;
 
 		public void Awake()
 		{
@@ -40,65 +43,48 @@ namespace RoR2Drogen
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
 			On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
 			On.RoR2.CharacterBody.OnDestroy += CharacterBody_OnDestroy;
-			//On.RoR2.AnimationEvents.
 			On.RoR2.ShrineChanceBehavior.AddShrineStack += ShrineChanceBehavior_AddShrineStack;
 			On.RoR2.PurchaseInteraction.OnEnable += PurchaseInteraction_OnEnable;
 			On.RoR2.PurchaseInteraction.OnDisable += PurchaseInteraction_OnDisable;
 			On.RoR2.PurchaseInteraction.SetAvailable += PurchaseInteraction_SetAvailable;
 			On.RoR2.Inventory.RpcItemAdded += Inventory_RpcItemAdded;
-            On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
+			On.RoR2.MoneyPickup.Start += MoneyPickup_Start;
 			On.EntityStates.TitanMonster.FireMegaLaser.OnEnter += FireMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.ChargeMegaLaser.OnEnter += ChargeMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.FireMegaLaser.OnExit += FireMegaLaser_OnExit;
-			On.RoR2.GoldTitanManager.TryStartChannelingTitansServer += GoldTitanManager_TryStartChannelingTitansServer;
 		}
 
 		#region Lazermaster
 
-		private List<CharacterMaster> currentTitans = (List<CharacterMaster>)typeof(GoldTitanManager).GetField("currentTitans", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
-
-		private bool GoldTitanManager_TryStartChannelingTitansServer(On.RoR2.GoldTitanManager.orig_TryStartChannelingTitansServer orig, object channeler, Vector3 approximatePosition, Vector3? lookAtPosition, System.Action channelEndCallback)
-		{
-			var spawned = orig(channeler, approximatePosition, lookAtPosition, channelEndCallback);
-			if (spawned) {
-				//Debug.LogError($"TITAAAAAAAN {Time.realtimeSinceStartup} {currentTitans.Count}");
-				currentTitans.ForEach(titan =>
-				{
-					var body = titan.GetBodyObject();
-					if (body == null)
-					{
-						Debug.Log("Skipping Titan with no body");
-						return;
-					}
-
-					AkSoundEngine.PostEvent(LazerInit, body);
-				});
-			}
-			return spawned;
-		}
-
 		private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
 		{
 			var isGold = self is EntityStates.TitanMonster.ChargeGoldMegaLaser;
-			//Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
-			if (isGold)
-			{
-				AkSoundEngine.PostEvent(LazerCharge, self.outer.gameObject);
-			}
-			orig(self);
-		}
 
-		private void FireMegaLaser_OnExit(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnExit orig, EntityStates.TitanMonster.FireMegaLaser self)
-		{
-			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			//Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
+			var gameObj = self.outer.gameObject;
+			var lm = gameObj.GetComponent<Lazermaster>();
+			if (lm == null)
+			{
+				lm = gameObj.AddComponent<Lazermaster>();
+			}
+
+			Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
+			AkSoundEngine.PostEvent(LazerCharge, self.outer.gameObject);
 			orig(self);
 		}
 
 		private void FireMegaLaser_OnEnter(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
 			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			//Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
+			Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
+			AkSoundEngine.PostEvent(LazerFire, self.outer.gameObject);
+			orig(self);
+		}
+
+		private void FireMegaLaser_OnExit(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnExit orig, EntityStates.TitanMonster.FireMegaLaser self)
+		{
+			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+			Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
+			AkSoundEngine.PostEvent(LazerFireEnd, self.outer.gameObject);
 			orig(self);
 		}
 
