@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using BepInEx;
+using BepInEx.Configuration;
 using R2API;
 using R2API.Utils;
 using RoR2;
@@ -35,9 +36,20 @@ namespace RoR2Drogen
 		public const uint LazerFireEnd = 2649077457;
 		public const uint LazerStop = 182908003;
 
+		public static ConfigEntry<bool> UseLazer { get; set; }
+		public static ConfigEntry<bool> UseGnome { get; set; }
+		public static ConfigEntry<bool> UseSteamworks { get; set; }
+		public static ConfigEntry<bool> UseDrogen { get; set; }
+
 		public void Awake()
 		{
 			AddSoundBank();
+
+			UseLazer = Config.Bind("Toggle", "Lazer", true, "Enables laser sounds for Aurelionite");
+			UseGnome = Config.Bind("Toggle", "Gnome", true, "Enables gnome sounds for Ghor's Tome");
+			UseSteamworks = Config.Bind("Toggle", "Gambling", true, "Enable MHW steamworks music on gambling shrines");
+			UseDrogen = Config.Bind("Toggle", "Drogen", true, "drogen jeden tag");
+            Config.ConfigReloaded += Config_ConfigReloaded;
 
 			On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
@@ -52,12 +64,34 @@ namespace RoR2Drogen
 			On.EntityStates.TitanMonster.FireMegaLaser.OnEnter += FireMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.ChargeMegaLaser.OnEnter += ChargeMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.FireMegaLaser.OnExit += FireMegaLaser_OnExit;
+            On.RoR2.SceneDirector.Start += SceneDirector_Start;
 		}
 
-		#region Lazermaster
+        #region Config
 
-		private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
+        private void SceneDirector_Start(On.RoR2.SceneDirector.orig_Start orig, SceneDirector self)
+        {
+			Debug.LogError("Scene director!");
+			Config.Reload();
+        }
+
+		private void Config_ConfigReloaded(object sender, System.EventArgs e)
 		{
+			Debug.LogError($"Lazer: {UseLazer.Value}");
+		}
+
+        #endregion
+
+        #region Lazermaster
+
+        private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
+		{
+			if (!UseLazer.Value)
+            {
+				orig(self);
+				return;
+            }
+
 			var isGold = self is EntityStates.TitanMonster.ChargeGoldMegaLaser;
 
 			var gameObj = self.outer.gameObject;
@@ -75,9 +109,12 @@ namespace RoR2Drogen
 
 		private void FireMegaLaser_OnEnter(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
-			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
-			AkSoundEngine.PostEvent(LazerFire, self.outer.gameObject);
+			if (UseLazer.Value)
+			{
+				var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+				Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
+				AkSoundEngine.PostEvent(LazerFire, self.outer.gameObject);
+			}
 			orig(self);
 		}
 
@@ -106,7 +143,7 @@ namespace RoR2Drogen
 
 		private void CheckGnooomed(Inventory self, ItemIndex itemIndex)
 		{
-			if (itemIndex != Items.BonusGoldPackOnKill.itemIndex)
+			if (itemIndex != Items.BonusGoldPackOnKill.itemIndex || !UseGnome.Value)
 				return;
 
 			var cm = self.GetComponent<CharacterMaster>();
@@ -129,7 +166,10 @@ namespace RoR2Drogen
 
 		private void MoneyPickup_Start(On.RoR2.MoneyPickup.orig_Start orig, MoneyPickup self)
 		{
-			self.gameObject.AddComponent<GoldDestroyer>();
+			if (UseGnome.Value)
+			{
+				self.gameObject.AddComponent<GoldDestroyer>();
+			}
 			orig(self);
 		}
 
@@ -151,7 +191,7 @@ namespace RoR2Drogen
 			{
 				if (newAvailable)
 				{
-					AkSoundEngine.PostEvent(SteamworksStart, self.gameObject);
+					StartSteamworks(self.gameObject);
 				}
 				else
 				{
@@ -166,7 +206,7 @@ namespace RoR2Drogen
 			//Debug.LogWarning($"PurchaseInteraction_OnEnable");
 			if (self.gameObject.GetComponent<ShrineChanceBehavior>() != null)
 			{
-				AkSoundEngine.PostEvent(SteamworksStart, self.gameObject);
+				StartSteamworks(self.gameObject);
 			}
 			orig(self);
 		}
@@ -175,6 +215,14 @@ namespace RoR2Drogen
 		{
 			//Debug.LogWarning($"ShrineChanceBehavior_AddShrineStack");
 			orig(self, activator);
+		}
+
+		private void StartSteamworks(GameObject go)
+        {
+			if (UseSteamworks.Value)
+			{
+				AkSoundEngine.PostEvent(SteamworksStart, go);
+			}
 		}
 
 		#endregion
@@ -217,7 +265,10 @@ namespace RoR2Drogen
 
 		private void Drogenrausch(CharacterBody self)
 		{
-			AkSoundEngine.PostEvent(DrogenStart, self.gameObject);
+			if (UseDrogen.Value)
+			{
+				AkSoundEngine.PostEvent(DrogenStart, self.gameObject);
+			}
 		}
 
 		private void Drogenentzug(CharacterBody self)
