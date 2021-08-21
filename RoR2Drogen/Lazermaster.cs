@@ -4,7 +4,7 @@ namespace RoR2Drogen
 {
 	class Lazermaster : MonoBehaviour
 	{
-		public void OnDestroy()
+		public void OnDisable()
 		{
 			AkSoundEngine.PostEvent(DrogenMain.LazerStop, gameObject);
 		}

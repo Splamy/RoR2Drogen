@@ -71,13 +71,14 @@ namespace RoR2Drogen
 
         private void SceneDirector_Start(On.RoR2.SceneDirector.orig_Start orig, SceneDirector self)
         {
-			Debug.LogError("Scene director!");
+			Debug.LogError("Reloading config...");
 			Config.Reload();
+			orig(self);
         }
 
 		private void Config_ConfigReloaded(object sender, System.EventArgs e)
 		{
-			Debug.LogError($"Lazer: {UseLazer.Value}");
+			Debug.LogError($"Drogen config reloaded.");
 		}
 
         #endregion
