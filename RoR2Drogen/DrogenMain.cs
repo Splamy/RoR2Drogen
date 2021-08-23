@@ -49,7 +49,7 @@ namespace RoR2Drogen
 			UseGnome = Config.Bind("Toggle", "Gnome", true, "Enables gnome sounds for Ghor's Tome");
 			UseSteamworks = Config.Bind("Toggle", "Gambling", true, "Enable MHW steamworks music on gambling shrines");
 			UseDrogen = Config.Bind("Toggle", "Drogen", true, "drogen jeden tag");
-            Config.ConfigReloaded += Config_ConfigReloaded;
+			Config.ConfigReloaded += Config_ConfigReloaded;
 
 			On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
 			On.RoR2.CharacterBody.OnBuffFinalStackLost += CharacterBody_OnBuffFinalStackLost;
@@ -64,36 +64,34 @@ namespace RoR2Drogen
 			On.EntityStates.TitanMonster.FireMegaLaser.OnEnter += FireMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.ChargeMegaLaser.OnEnter += ChargeMegaLaser_OnEnter;
 			On.EntityStates.TitanMonster.FireMegaLaser.OnExit += FireMegaLaser_OnExit;
-            On.RoR2.SceneDirector.Start += SceneDirector_Start;
+			On.RoR2.SceneDirector.Start += SceneDirector_Start;
 		}
 
-        #region Config
+		#region Config
 
-        private void SceneDirector_Start(On.RoR2.SceneDirector.orig_Start orig, SceneDirector self)
-        {
+		private void SceneDirector_Start(On.RoR2.SceneDirector.orig_Start orig, SceneDirector self)
+		{
 			Debug.LogError("Reloading config...");
 			Config.Reload();
 			orig(self);
-        }
+		}
 
 		private void Config_ConfigReloaded(object sender, System.EventArgs e)
 		{
 			Debug.LogError($"Drogen config reloaded.");
 		}
 
-        #endregion
+		#endregion
 
-        #region Lazermaster
+		#region Lazermaster
 
-        private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
+		private void ChargeMegaLaser_OnEnter(On.EntityStates.TitanMonster.ChargeMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.ChargeMegaLaser self)
 		{
 			if (!UseLazer.Value)
-            {
+			{
 				orig(self);
 				return;
-            }
-
-			var isGold = self is EntityStates.TitanMonster.ChargeGoldMegaLaser;
+			}
 
 			var gameObj = self.outer.gameObject;
 			var lm = gameObj.GetComponent<Lazermaster>();
@@ -103,6 +101,7 @@ namespace RoR2Drogen
 				AkSoundEngine.PostEvent(LazerStart, gameObj);
 			}
 
+			//var isGold = self is EntityStates.TitanMonster.ChargeGoldMegaLaser;
 			//Debug.LogError($"Chaaarge {Time.realtimeSinceStartup} {isGold}");
 			AkSoundEngine.PostEvent(LazerCharge, gameObj);
 			orig(self);
@@ -110,9 +109,9 @@ namespace RoR2Drogen
 
 		private void FireMegaLaser_OnEnter(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnEnter orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
-			if (UseLazer.Value)
+			if (self.outer.gameObject.GetComponent<Lazermaster>()?.Alive == true)
 			{
-				var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+				//var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
 				//Debug.LogError($"LAZERRRRRRR {Time.realtimeSinceStartup} {isGold}");
 				AkSoundEngine.PostEvent(LazerFire, self.outer.gameObject);
 			}
@@ -121,10 +120,28 @@ namespace RoR2Drogen
 
 		private void FireMegaLaser_OnExit(On.EntityStates.TitanMonster.FireMegaLaser.orig_OnExit orig, EntityStates.TitanMonster.FireMegaLaser self)
 		{
-			var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
-			//Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
-			AkSoundEngine.PostEvent(LazerFireEnd, self.outer.gameObject);
+			if (self.outer.gameObject.GetComponent<Lazermaster>()?.Alive == true)
+			{
+				//var isGold = self is EntityStates.TitanMonster.FireGoldMegaLaser;
+				//Debug.LogError($"NO lazer {Time.realtimeSinceStartup} {isGold}");
+				AkSoundEngine.PostEvent(LazerFireEnd, self.outer.gameObject);
+			}
 			orig(self);
+		}
+
+		public static void LazermasterDed(CharacterBody self)
+		{
+			if (self == null || self.gameObject == null)
+			{
+				Debug.LogWarning("Why are you null?");
+				return;
+			}
+
+			var lm = self.gameObject.GetComponent<Lazermaster>();
+			if (lm != null)
+			{
+				lm.LazermasterDed();
+			}
 		}
 
 		#endregion
@@ -142,7 +159,7 @@ namespace RoR2Drogen
 			orig(self, itemIndex);
 		}
 
-		private void CheckGnooomed(Inventory self, ItemIndex itemIndex)
+		public static void CheckGnooomed(Inventory self, ItemIndex itemIndex)
 		{
 			if (itemIndex != Items.BonusGoldPackOnKill.itemIndex || !UseGnome.Value)
 				return;
@@ -219,7 +236,7 @@ namespace RoR2Drogen
 		}
 
 		private void StartSteamworks(GameObject go)
-        {
+		{
 			if (UseSteamworks.Value)
 			{
 				AkSoundEngine.PostEvent(SteamworksStart, go);
@@ -234,6 +251,7 @@ namespace RoR2Drogen
 		{
 			//Debug.LogWarning($"CharacterBody_OnDestroy {self}");
 			Drogenentzug(self);
+			LazermasterDed(self);
 			orig(self);
 		}
 
@@ -241,6 +259,7 @@ namespace RoR2Drogen
 		{
 			//Debug.LogWarning($"CharacterBody_OnDeathStart {self}");
 			Drogenentzug(self);
+			LazermasterDed(self);
 			orig(self);
 		}
 
@@ -264,7 +283,7 @@ namespace RoR2Drogen
 			orig(self, buffDef);
 		}
 
-		private void Drogenrausch(CharacterBody self)
+		public static void Drogenrausch(CharacterBody self)
 		{
 			if (UseDrogen.Value)
 			{
@@ -272,7 +291,7 @@ namespace RoR2Drogen
 			}
 		}
 
-		private void Drogenentzug(CharacterBody self)
+		public static void Drogenentzug(CharacterBody self)
 		{
 			if (self == null || self.gameObject == null || !self.isPlayerControlled)
 				return;
