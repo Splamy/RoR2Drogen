@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{45F59F79-DD77-478C-8337-3F8F3FFF3B84}" SchemaVersion="89">
+<WwiseDocument Type="WorkUnit" ID="{45F59F79-DD77-478C-8337-3F8F3FFF3B84}" SchemaVersion="94">
 	<AudioObjects>
 		<WorkUnit Name="Factory Motion" ID="{45F59F79-DD77-478C-8337-3F8F3FFF3B84}" PersistMode="Standalone">
 			<ChildrenList>
