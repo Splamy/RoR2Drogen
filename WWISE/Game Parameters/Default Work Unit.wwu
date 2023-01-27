@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{61AF9F20-6673-404A-BE24-212EF97A40C0}" SchemaVersion="94">
+<WwiseDocument Type="WorkUnit" ID="{B0ACA029-C43E-4F12-97C3-A83B14D96608}" SchemaVersion="97">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{61AF9F20-6673-404A-BE24-212EF97A40C0}" PersistMode="Standalone">
-			<ChildrenList>
-				<GameParameter Name="game_health" ID="{0668864A-1B16-4522-8F55-68F69CC95739}"/>
-				<GameParameter Name="shrine_stacks" ID="{A34B77F0-11B3-44C2-983F-4399E339B27C}">
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="0"/>
-						<Property Name="Max" Type="Real64" Value="10"/>
-					</PropertyList>
-				</GameParameter>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{B0ACA029-C43E-4F12-97C3-A83B14D96608}" PersistMode="Standalone"/>
 	</GameParameters>
 </WwiseDocument>

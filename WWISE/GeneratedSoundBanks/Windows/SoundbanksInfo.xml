@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Code\RoR2Drogen\WWISE\</ProjectRoot>
-		<SourceFilesRoot>D:\Code\RoR2Drogen\WWISE\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Code\RoR2Drogen\WWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Code\RoR2Drogen\WWISE-NEW\</ProjectRoot>
+		<SourceFilesRoot>D:\Code\RoR2Drogen\WWISE-NEW\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Code\RoR2Drogen\WWISE-NEW\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Code\RoR2Drogen\WWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Code\RoR2Drogen\WWISE-NEW\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1335775606" Language="SFX">
+		<SoundBank Id="1335775606" Language="SFX" Hash="2702436060">
 			<ObjectPath>\SoundBanks\Default Work Unit\drogen_soundbank</ObjectPath>
 			<ShortName>drogen_soundbank</ShortName>
 			<Path>drogen_soundbank.bnk</Path>
@@ -33,55 +33,55 @@
 			<IncludedMemoryFiles>
 				<File Id="51668186" Language="SFX">
 					<ShortName>hu2.wav</ShortName>
-					<Path>SFX\hu2_A0997E7C.wem</Path>
+					<Path>SFX\hu2_E4E92DBC.wem</Path>
 				</File>
 				<File Id="181311941" Language="SFX">
 					<ShortName>hu10.wav</ShortName>
-					<Path>SFX\hu10_A0997E7C.wem</Path>
+					<Path>SFX\hu10_E4E92DBC.wem</Path>
 				</File>
 				<File Id="210034912" Language="SFX">
 					<ShortName>hu6.wav</ShortName>
-					<Path>SFX\hu6_A0997E7C.wem</Path>
+					<Path>SFX\hu6_E4E92DBC.wem</Path>
 				</File>
 				<File Id="332186889" Language="SFX">
 					<ShortName>hu5.wav</ShortName>
-					<Path>SFX\hu5_A0997E7C.wem</Path>
+					<Path>SFX\hu5_E4E92DBC.wem</Path>
 				</File>
 				<File Id="639296211" Language="SFX">
 					<ShortName>hu1.wav</ShortName>
-					<Path>SFX\hu1_A0997E7C.wem</Path>
+					<Path>SFX\hu1_E4E92DBC.wem</Path>
 				</File>
 				<File Id="713075328" Language="SFX">
 					<ShortName>hu4.wav</ShortName>
-					<Path>SFX\hu4_A0997E7C.wem</Path>
+					<Path>SFX\hu4_E4E92DBC.wem</Path>
 				</File>
 				<File Id="737392870" Language="SFX">
 					<ShortName>hu7.wav</ShortName>
-					<Path>SFX\hu7_A0997E7C.wem</Path>
+					<Path>SFX\hu7_E4E92DBC.wem</Path>
 				</File>
 				<File Id="790906895" Language="SFX">
 					<ShortName>lasermaster_drop_loop.wav</ShortName>
-					<Path>SFX\lasermaster_drop_loop_C54F28C6.wem</Path>
+					<Path>SFX\lasermaster_drop_loop_72F6E016.wem</Path>
 				</File>
 				<File Id="805179194" Language="SFX">
 					<ShortName>hu3.wav</ShortName>
-					<Path>SFX\hu3_A0997E7C.wem</Path>
+					<Path>SFX\hu3_E4E92DBC.wem</Path>
 				</File>
 				<File Id="810021368" Language="SFX">
 					<ShortName>gnome_short.wav</ShortName>
-					<Path>SFX\gnome_short_A0997E7C.wem</Path>
+					<Path>SFX\gnome_short_E4E92DBC.wem</Path>
 				</File>
 				<File Id="813821063" Language="SFX">
 					<ShortName>drogen.wav</ShortName>
-					<Path>SFX\drogen_C54F28C6.wem</Path>
+					<Path>SFX\drogen_72F6E016.wem</Path>
 				</File>
 				<File Id="1007847808" Language="SFX">
 					<ShortName>steamworks.wav</ShortName>
-					<Path>SFX\steamworks_9C55249E.wem</Path>
+					<Path>SFX\steamworks_24BE698E.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2401960204">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
